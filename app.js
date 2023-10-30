@@ -7,7 +7,7 @@ const app = new express();
 app.use('/', router);
 
 const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || "127.0.0.1";
+const HOST = process.env.HOST || "0.0.0.0";
 app.set('port', PORT);
 
 const server = http.createServer(app);
