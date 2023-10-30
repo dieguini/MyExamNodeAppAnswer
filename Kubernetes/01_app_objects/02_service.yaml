@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-express-sample-service
+spec:
+  selector:
+    name: node-express-sample-pod
+    app: node-express-sample
+    tier: front-end
+    type: pod
+  ports:
+  - port: 80
+    targetPort: 3000
+  type: ClusterIP

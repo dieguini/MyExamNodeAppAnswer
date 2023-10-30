@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-express-sample-deployment
+  labels:
+    name: node-express-sample-deployment
+    app: node-express-sample
+    tier: front-end
+    type: deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: node-express-sample-pod
+      app: node-express-sample
+      tier: front-end
+      type: pod
+  template:
+    metadata:
+      name: node-express-sample-pod
+      labels:
+        name: node-express-sample-pod
+        app: node-express-sample
+        tier: front-end
+        type: pod
+    spec:
+      containers:
+      - name: node-express-sample-container
+        image: g0l14t/node-express-sample:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
+

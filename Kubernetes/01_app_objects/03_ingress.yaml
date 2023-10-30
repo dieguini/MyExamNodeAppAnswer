@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: node-express-sample-service
+  labels:
+    name: node-express-sample-service
+    app: node-express-sample
+    tier: front-end
+    type: ingress
+spec:
+  rules:
+  - host: my.nodeexpresssampleingress.local
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: node-express-sample-service
+            port: 
+              number: 80
