@@ -64,7 +64,6 @@ jobs:
         with:
           images: |
             ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}
-            ${{ env.GHCR_REGISTRY }}/${{ env.GHCR_IMAGE_NAME }}
           tags: |
             # dynamically set the branch name and sha as a custom tag
             type=raw,value={{ base_ref }}
