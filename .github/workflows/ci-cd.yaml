@@ -34,8 +34,6 @@ jobs:
     env:
       DOCKER_REGISTRY: ${{ vars.DOCKER_HUB_NS }}
       DOCKER_IMAGE_NAME: ${{ vars.DOCKER_IMAGE_NAME }}
-      GHCR_REGISTRY: ghcr.io
-      GHCR_IMAGE_NAME: ${{ github.repository }}
     needs: tests
     permissions:
       packages: write
@@ -81,6 +79,7 @@ jobs:
     runs-on: self-hosted
     needs: build
     steps:
+      # Step 1: Kuber deploy
       - 
         name: Deploy to Kubernetes
         run: |
